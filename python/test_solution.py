@@ -32,3 +32,12 @@ class TestSolution(TestCase):
         expected = TestSolution.SOLUTION_1
         actual = s.solve(TestSolution.GIVEN_1)
         self.assertEqual(expected, actual)
+
+    def test_solution_2(self):
+        expected = [
+            [(4, 2), (4, 3)],
+            [(12, 1), (15, 1), (21, 1)],
+            [(13, 0), (16, 0), (18, 0), (19, 0), (20, 0), (22, 0), (23, 0)]
+        ]
+        actual = s.solve([11, 10, 3, 4, 3, 2, 1, 4, 5, 4, 5, 6, 3, 2, 1, 6, 5, 7, 7, 8, 9, 12, 11, 12, 12, 1, 1, 1])
+        self.assertEqual(expected, actual)

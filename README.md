@@ -8,14 +8,14 @@ We are looking for combinations of i and j where
 `i + j = a[i] + a[j]` 
 
 Note that we can have many pairs which sum to a certain value,
-and many vales could have pairs. Therefore our solution
-will be a list of list of pairs.
+and for any sum there could be many pairs. 
+Therefore our solution will be a list of list of pairs.
 
 
 ## Example
 
-Given:    [1 4 5 9]
-Solution: ?
+Given:    [1, 5, 2, 4, 3]
+Solution: [[(4, 0), (4, 3)]]
 
 ## Hint 1
 Use basic algebra
@@ -32,11 +32,12 @@ i - a[i] = -(j - a[j])      # Make it easy to operate on
 ## Hint 3
 Create temp array of index minus value:
 ```
-index: [ 0  1  2  3] 
-value: [ 1  4  5  9]
-diff:  [ 1 -3  3  6]
+index: [ 0  1  2  3  4] 
+value: [ 1  5  2  4  3]
+diff:  [-1 -4  0  1  1] 
 ```
-Then find pairs of n and -n.
+Then find pairs of n and -n. 
+This this example we have only 1 and -1.
 
 # Solution
 
@@ -46,7 +47,6 @@ Populate it with with index - values.
 
 `diffs[i] = i - a[i]`
 
-This takes O(n) time and O(n) memory.
 
 ### Step 2
 Create lookup table called `lookup`. 
