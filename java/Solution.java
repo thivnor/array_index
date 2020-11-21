@@ -25,22 +25,13 @@ public class Solution {
         List<List<List<Integer>>> result = new ArrayList<>();
         for (int key: lookup.keySet()) {
             if (key > 0 && lookup.containsKey(-key)) {
-                result.add(
-                        Solution.create_permutations(
-                                lookup.get(key),
-                                lookup.get(-key)
-                        )
-                );
-            }
-        }
-        return result;
-    }
-
-    private static List<List<Integer>> create_permutations(List<Integer> list_a, List<Integer> list_b) {
-        List<List<Integer>> result = new ArrayList<>();
-        for (int a: list_a) {
-            for (int b: list_b) {
-                result.add(Arrays.asList(a, b));
+                List<List<Integer>> permutations = new ArrayList<>();
+                for (int a: lookup.get(key)) {
+                    for (int b: lookup.get(-key)) {
+                        permutations.add(Arrays.asList(a, b));
+                    }
+                }
+                result.add(permutations);
             }
         }
         return result;
@@ -49,10 +40,10 @@ public class Solution {
     public static void main(String[] args) {
         int[] given1 = new int[]{1, 5, 2, 4, 3};
         System.out.println("Given: " + Arrays.toString(given1));
-        System.out.println("Result: " + Solution.solve(given1));
+        System.out.println("Solution: " + Solution.solve(given1));
 
         int[] given2 = new int[]{11, 10, 3, 4, 3, 2, 1, 4, 5, 4, 5, 6, 3, 2, 1, 6, 5, 7, 7, 8, 9, 12, 11, 12, 12, 1, 1, 1};
         System.out.println("Given: " + Arrays.toString(given2));
-        System.out.println("Result: " + Solution.solve(given2));
+        System.out.println("Solution: " + Solution.solve(given2));
     }
 }
