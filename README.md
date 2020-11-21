@@ -61,15 +61,15 @@ Map from value to indexes which contain that value.
 The values in our lookup table are lists of int.
 
 ## Step 3
-Iterate of the keys of the lookup table.
-For each positive number `k`, seek if the lookup table contains
-corresponding `-k`. If so, add all permutations of values.
+Iterate over the keys of the lookup table.
+For each positive number `k`, see if the lookup table contains
+corresponding `-k`. If so, add all permutations of their values.
 
 Given lookup table: 
 ```
 {
-  2: [1, 2],
- -2: [3, 4]
+  1: [1, 2],
+ -1: [3, 4]
 }
 ```
 
